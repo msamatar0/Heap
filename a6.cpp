@@ -22,6 +22,7 @@ int main(){
 	};
 	heap<node> nodeHeap(nodes, 10);
 	cout << nodeHeap << endl << endl;
+	//heap<node>::heapSort(nodes, 10);
 	for(int i = 0; i < 10; ++i){
 		nodes[i] = nodeHeap.top();
 		nodeHeap.remove();

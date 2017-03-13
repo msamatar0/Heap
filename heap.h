@@ -109,10 +109,19 @@ public:
 		vecHeap.pop_back();
 		downHeap(0);
 	}
-	friend ostream &operator<<<t>(ostream &hout, heap &h){
-		hout << '[';
-		for(int i = 0; i < h.size(); ++i)
-			hout << h.vecHeap[i] << (i == h.size() - 1? "" : ", ");
-		return hout << ']';
+	static void heapSort(t *ar, size_t len){
+		heap<t> h(ar, len);
+		for (int i = 0; i < h.size(); ++i){
+			ar[i] = h.top();
+			h.remove();
+		}
 	}
+	friend ostream &operator<<<t>(ostream &hout, heap<t> &h);
 };
+
+template<typename t> ostream &operator<<(ostream &hout, heap<t> &h){
+	hout << "Heap[\n";
+	for (int i = 0; i < h.size(); ++i)
+		hout << "  " << h.vecHeap[i] << endl;
+	return hout << "]\n";
+}
