@@ -66,7 +66,7 @@ protected:
 public:
 	heap(){}
 	//size_t used to prevent negative vector size
-	heap(size_t s) : vecHeap(vector<t>(s)){}
+	heap(size_t s): vecHeap(vector<t>(s)){}
 	//constructs heap from array
 	heap(t *a, size_t len){
 		for(int i = 0; i < len; ++i)
